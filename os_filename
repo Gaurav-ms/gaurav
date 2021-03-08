@@ -1,0 +1,20 @@
+ how to load variables dynamically in Ansible.
+ - hosts: 
+  var_files:
+  - "{{ ansible_facts['distibution']}}.yml"
+
+  tasks:
+  - name: installing package
+    package:
+            name: "{{ package_name }}"
+            state: present
+
+  - name: copying webpages./.--.\.
+    template:
+            dest: "{{ doc_root}}/index.html"
+            src: /ws_task_14.3/index.html
+
+  - name: starting the service
+    service:
+            name: "{{ serice_name }}"
+            state: started
